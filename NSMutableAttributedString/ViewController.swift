@@ -21,8 +21,15 @@ class ViewController: UIViewController {
 
         testTextField.attributedText = attributeString
         
-        
+        //画面余白をタップした時の処理
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapView))
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    @objc func didTapView() {
+        view.endEditing(true)
+    }
+    
 
     @IBAction func pressButton(_ sender: Any) {
         
