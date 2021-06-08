@@ -24,6 +24,18 @@ class ViewController: UIViewController {
         
     }
 
-
+    @IBAction func pressButton(_ sender: Any) {
+        
+        testTextField.resignFirstResponder()
+        
+        let str : NSMutableAttributedString = NSMutableAttributedString(string:testTextField.text ?? "")
+        
+        str.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, str.length))
+        
+        testTextField.attributedText = str
+        
+        
+    }
+    
 }
 
