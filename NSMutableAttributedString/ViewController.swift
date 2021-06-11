@@ -32,13 +32,15 @@ class ViewController: UIViewController {
     
 
     @IBAction func pressButton(_ sender: Any) {
-        
+        //キーボードをしまう操作
         testTextField.resignFirstResponder()
         
         let str : NSMutableAttributedString = NSMutableAttributedString(string:testTextField.text ?? "")
+        //テキストフィールドのテキストをコンソールに表示する
+        print("text:\(testTextField.text ?? "")")
         
         str.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, str.length))
-        
+        //テキストフィールドに取り消し線の文字を表示させる。
         testTextField.attributedText = str
         
         
