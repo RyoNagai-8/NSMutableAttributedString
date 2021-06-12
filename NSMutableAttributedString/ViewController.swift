@@ -24,11 +24,21 @@ class ViewController: UIViewController {
         //画面余白をタップした時の処理
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapView))
         view.addGestureRecognizer(tapGestureRecognizer)
+        
+        //テストコードを入力
+        //リターンキーを押下したら、キーボードが閉じる
+        testTextField.addTarget(self, action: #selector(onExitAction(sender:)), for: .editingDidEndOnExit)
+        
     }
     
     @objc func didTapView() {
         view.endEditing(true)
     }
+    
+    /// `.editingDidEndOnExit` イベントが送信されると呼ばれる
+        @objc func onExitAction(sender: Any) {
+            print("リターンキーを押下：\(testTextField.text ?? "")")
+        }
     
 
     @IBAction func pressButton(_ sender: Any) {
